@@ -5,6 +5,7 @@ import {
   isEmptyBody,
   isValidId,
   isEmptyFavoriteBody,
+  upload,
 } from "../../middlewares/index.js";
 
 const contactsRouter = express.Router();
@@ -15,7 +16,12 @@ contactsRouter.get("/", contactsControllers.listContacts);
 
 contactsRouter.get("/:id", isValidId, contactsControllers.getContactById);
 
-contactsRouter.post("/", isEmptyBody, contactsControllers.addContact);
+contactsRouter.post(
+  "/",
+  upload.single("avatar"),
+  isEmptyBody,
+  contactsControllers.addContact
+);
 
 contactsRouter.put(
   "/:id",

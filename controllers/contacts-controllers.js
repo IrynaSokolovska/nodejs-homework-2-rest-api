@@ -1,3 +1,6 @@
+import fs from "fs/promises";
+import path from "path";
+
 import Contact from "../models/Contact.js";
 // import * as contactsService from "../models/index.js";
 import { HttpError } from "../helpers/index.js";
@@ -7,6 +10,8 @@ import {
   contactUpdateSchema,
   contactFavoriteSchema,
 } from "../models/Contact.js";
+
+const avatarsPath = path.resolve("public", "avatars");
 
 const listContacts = async (req, res, next) => {
   try {
@@ -39,7 +44,11 @@ const addContact = async (req, res, next) => {
       throw HttpError(400, error.message);
     }
     const { _id: owner } = req.user;
-    const result = await Contact.create({ ...req.body, owner });
+    const { path: oldPath, filename } = req.file;
+    const newPath = path.join(avatarsPath, filename);
+    await fs.rename(oldPath, newPath);
+    const avatar = path.join("avatars", filename);
+    const result = await Contact.create({ ...req.body, avatar, owner });
     res.status(201).json(result);
   } catch (error) {
     next(error);
