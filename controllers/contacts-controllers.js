@@ -91,6 +91,7 @@ const patchContact = async (req, res, next) => {
     next(error);
   }
 };
+
 const removeContact = async (req, res, next) => {
   try {
     const { id } = req.params;
