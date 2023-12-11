@@ -196,86 +196,8 @@ export default {
   verify,
   resendVerify,
 };
-// const addContact = async (req, res, next) => {
-//   try {
-//     const { error } = contactAddSchema.validate(req.body);
-//     if (error) {
-//       throw HttpError(400, error.message);
-//     }
-//     const { _id: owner } = req.user;
-//     const { path: oldPath, filename } = req.file;
-//     const newPath = path.join(avatarsPath, filename);
-//     await fs.rename(oldPath, newPath);
-//     const avatar = path.join("avatars", filename);
-//     const result = await Contact.create({ ...req.body, avatar, owner });
-//     res.status(201).json(result);
-//   } catch (error) {
-//     next(error);
-//   }
-// };
 
-// const updateAvatar = async (req, res, next) => {
-//   try {
-//     const { error } = contactFavoriteSchema.validate(req.body);
-//     if (error) {
-//       throw HttpError(400, error.message);
-//     }
-//     const { id } = req.params;
-//     const { _id: owner } = req.user;
-//     const result = await Contact.findOneAndUpdate({ _id: id, owner }, req.body);
-//     if (!result) {
-//       throw HttpError(404, `Not found`);
-//     }
-//     res.json(result);
-//   } catch (error) {
-//     next(error);
-//   }
-// };
-// const ctrlContactWrapper = (ctrl) => {
-//   const func = async (req, res, next) => {
-//     try {
-//       await ctrl(req, res, next);
-//     } catch (error) {
-//       next(error);
-//     }
-//   };
-//   return func;
-// };
-
-// const signup = async (req, res, next) => {
-//   try {
-//     const { error } = userSignupSchema.validate(req.body);
-//     if (error) {
-//       throw HttpError(400, error.message);
-//     }
-//     const { email, password } = req.body;
-//     const user = await User.findOne({ email });
-//     if (user) {
-//       throw HttpError(409, "Email in use");
-//     }
-//     const hashPassword = await bcrypt.hash(password, 10);
-//     const newUser = await User.create({ ...req.body, password: hashPassword });
-
-//     res.status(201).json({
-//       user: {
-//         email: newUser.email,
-//         subscription: newUser.subscription,
-//       },
-//     });
-//   } catch (error) {
-//     next(error);
-//   }
-// };
 // -------------------------------------------------------------------
-// http://localhost:3000/api/auth/signin
-// "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjcyN2YzNDZhMTNkMzVhYWE1OWUwMCIsImlhdCI6MTcwMTI4MTY2NywiZXhwIjoxNzAxMzY0NDY3fQ.eeWhAeCSkp1GQbNDvaIm6IndSkj_ihylIKrh7Ks0Qvo"
-
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjcyN2YzNDZhMTNkMzVhYWE1OWUwMCIsImlhdCI6MTcwMTI4MTY2NywiZXhwIjoxNzAxMzY0NDY3fQ.eeWhAeCSkp1GQbNDvaIm6IndSkj_ihylIKrh7Ks0Qvo
-
-// res.status(201).json({
-//   username: newUser.username,
-//   email: newUser.email,
-// });
 
 // const ctrlWrapper = ctrl => {
 //     const func = async(req, res, next)=> {
