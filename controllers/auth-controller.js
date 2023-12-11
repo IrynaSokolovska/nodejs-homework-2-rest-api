@@ -3,7 +3,11 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import User from "../models/User.js";
 import { HttpError, sendEmail } from "../helpers/index.js";
-import { userSignupSchema, userSigninSchema } from "../models/User.js";
+import {
+  userSignupSchema,
+  userSigninSchema,
+  userEmailSchema,
+} from "../models/User.js";
 import gravatar from "gravatar";
 import path from "path";
 import fs from "fs/promises";
