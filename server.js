@@ -1,8 +1,7 @@
 import mongoose from "mongoose";
 import app from "./app.js";
-// import { error } from "console";
 
-const { DB_HOST, PORT } = process.env;
+const { DB_HOST, PORT = 3000 } = process.env;
 
 mongoose
   .connect(DB_HOST)
@@ -19,6 +18,9 @@ mongoose
   });
 
 // --------------------
+
+// import { error } from "console";
+
 // import { DB_HOST } from "./config.js";
 // mongoose
 //   .connect(DB_HOST)
