@@ -19,6 +19,9 @@ mongoose
   });
 
 // --------------------
+
+// import { error } from "console";
+
 // import { DB_HOST } from "./config.js";
 // mongoose
 //   .connect(DB_HOST)
